@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    div {
+        background-color: white;
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 80%;
+        padding: 8px;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #result {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div>
+        <h2>Pick a Num from 0-10</h2>
+        <input type="text" id="inp1">
+        <button onclick="guessMe()">Guess</button>
+        <p id="result"></p>
+    </div>
+</body>
+
+</html>
+<script>
+    let input1 = document.getElementById('inp1')
+    let finalResult = document.getElementById('result')
+
+    function guessMe() {
+        let userGuess = +input1.value
+        let random = Math.floor(Math.random() * 11)
+        console.log(random);
+
+        if (userGuess === random) {
+            finalResult.innerHTML = `congratulations!!! you guessed ${random}, which is correct`
+            finalResult.style.color = "green"
+        } else {
+            finalResult.innerHTML = `oops... you got it wrong the answer is ${random}`
+            finalResult.style.color = "red"
+        }
+
+
+    }
+</script>
