@@ -73,7 +73,20 @@
         let random = Math.floor(Math.random() * 11)
         console.log(random);
 
-        if (userGuess === random) {
+        if (!input1.value) {
+            finalResult.innerHTML = 'input a value'
+        } else if(userGuess < 0){
+            finalResult.innerHTML = 'input a value greater than 0'
+            finalResult.style.color = 'red'
+        }else if (userGuess > 10) {
+            finalResult.innerHTML = 'input a value less than 10'
+            finalResult.style.color = 'red'
+
+        } else if (isNaN(userGuess)) {
+            finalResult.innerHTML = 'input a numeric value'
+            finalResult.style.color ='red'
+
+        } else if (userGuess === random) {
             finalResult.innerHTML = `congratulations!!! you guessed ${random}, which is correct`
             finalResult.style.color = "green"
         } else {
